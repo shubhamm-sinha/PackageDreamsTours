@@ -123,22 +123,28 @@
       if (st < 150) {
         if (navbar.hasClass("scrolled")) {
           navbar.removeClass("scrolled sleep");
+          var button = $("#ftco-nav");
+          if($(window).width() < 768 && button.hasClass("show")){
+            navbar.addClass("scrolled");
+          }
         }
       }
       if (st > 350) {
         if (!navbar.hasClass("awake")) {
           navbar.addClass("awake");
         }
-
         if (sd.length > 0) {
           sd.addClass("sleep");
         }
       }
       if (st < 350) {
-        if (navbar.hasClass("awake")) {
-          navbar.removeClass("awake");
-          navbar.addClass("sleep");
+        if($(window).width() > 768 && !button.hasClass("show")){
+          if (navbar.hasClass("awake")) {
+            navbar.removeClass("awake");
+            navbar.addClass("sleep");
+          }
         }
+        
         if (sd.length > 0) {
           sd.removeClass("sleep");
         }
@@ -278,17 +284,23 @@
     autoclose: true,
   });
 
-//   $(".btn-menu").on("click", function () {
-//     var screenWidth = $(window).width();
+})(jQuery);
 
-//     if (screenWidth < 400) {
-//         var elements = document.getElementsByClassName('ftco-navbar-light');
-//         elements.forEach(function(element) {
-//             element.style.background = '#000000';
-//             element.style.position = 'relative';
-//         });
-//     }
+$(document).ready(function () {
+  $("#btn_menu").click(function () {
+    var button = $("#ftco-nav"),
+      scrollTop = $(window).scrollTop(),
+      navbar = $(".ftco_navbar");
+    if (scrollTop < 150) {
+      if (!button.hasClass("show")) {
+        navbar.addClass("scrolled");
+        navbar.addClass("awake");
+      }
+      else {
+        navbar.removeClass("scrolled");
+      }
+    }
+  })
+});
 
-//   });
 
-})(jQuery);	
