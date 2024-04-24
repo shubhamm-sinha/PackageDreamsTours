@@ -12707,7 +12707,7 @@ textarea.form-control {
 .block-23 ul li .text {
   display: table-cell;
   vertical-align: top;
-  color: rgba(0, 0, 0, 0.5) !important;
+  color: #000000 !important;
 }
 .block-23 ul li .icon {
   width: 40px;
