@@ -316,6 +316,16 @@ $(document).ready(function () {
       }
     }
   })
+
+  $("#ftco-nav a").click(function(event) {
+    var button = $("#ftco-nav");
+    if (button) {
+      if ($(window).width() < 768 && button.hasClass("show")) {
+        button.removeClass("show");
+      }
+    }
+   
+  });
 });
 
 
