@@ -38,6 +38,8 @@
       items: 1,
       margin: 30,
       stagePadding: 0,
+      touchDrag: true,
+      mouseDrag: ($(window).width() < 768 ? false : true),
       nav: false,
       navText: [
         '<span class="ion-ios-arrow-back">',
@@ -61,6 +63,8 @@
       items: 1,
       margin: 30,
       stagePadding: 0,
+      touchDrag: true,
+      mouseDrag: ($(window).width() < 768 ? false : true),
       nav: false,
       navText: [
         '<span class="ion-ios-arrow-back">',
