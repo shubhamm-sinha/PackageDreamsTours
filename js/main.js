@@ -124,7 +124,7 @@
         if (navbar.hasClass("scrolled")) {
           navbar.removeClass("scrolled sleep");
           var button = $("#ftco-nav");
-          if($(window).width() < 768 && button.hasClass("show")){
+          if ($(window).width() < 768 && button.hasClass("show")) {
             navbar.addClass("scrolled");
           }
         }
@@ -138,13 +138,22 @@
         }
       }
       if (st < 350) {
-        if($(window).width() > 768 && !button.hasClass("show")){
+        if (button) {
+          if ($(window).width() > 768 && !button.hasClass("show")) {
+            if (navbar.hasClass("awake")) {
+              navbar.removeClass("awake");
+              navbar.addClass("sleep");
+            }
+          }
+        }
+        else {
           if (navbar.hasClass("awake")) {
             navbar.removeClass("awake");
             navbar.addClass("sleep");
           }
         }
-        
+
+
         if (sd.length > 0) {
           sd.removeClass("sleep");
         }
@@ -283,6 +292,8 @@
     format: "m/d/yyyy",
     autoclose: true,
   });
+
+
 
 })(jQuery);
 
