@@ -11243,7 +11243,7 @@ h5,
   bottom: 0;
   content: "";
   opacity: 0.3;
-  background: #000000;
+  background:#00000078;
 }
 .hero-wrap.hero-wrap-2 .overlay {
   width: 100%;
