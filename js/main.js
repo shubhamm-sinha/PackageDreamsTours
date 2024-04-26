@@ -317,15 +317,36 @@ $(document).ready(function () {
     }
   })
 
-  $("#ftco-nav a").click(function(event) {
+  $("#ftco-nav a").click(function () {
+    $(this).parent().siblings().removeClass("active");
+    $(this).parent().addClass("active");
+    const linkURL = this.href.split("/")[(this.href.split("/").length - 1)];
+    localStorage.setItem("currentpage", linkURL);
     var button = $("#ftco-nav");
     if (button) {
       if ($(window).width() < 768 && button.hasClass("show")) {
         button.removeClass("show");
       }
     }
-   
+
   });
+
+  function load_activeclass() {
+    const navLinks = document.getElementById("ftco-nav").querySelectorAll(".nav-link");
+    navLinks.forEach(link => {
+      // Get the href attribute of the current link
+      const linkURL = link.href.split("/")[(link.href.split("/").length - 1)];
+      if(linkURL.includes(localStorage.getItem("currentpage")) && !linkURL.includes("#"))
+      {
+        link.parentElement.classList.add("active");
+      }else{
+        link.parentElement.classList.remove("active");
+      }
+      
+    });
+  }
+
+  load_activeclass();
 });
 
 
